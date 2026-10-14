@@ -31,19 +31,28 @@ export const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-24 bg-[#F7F7FC] text-slate-900 relative overflow-hidden"
+      className="py-24 relative overflow-hidden theme-transition"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+      }}
     >
       {/* Background accents */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-purple-100/60 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl pointer-events-none" />
+      <div
+        className="absolute top-1/4 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
+        style={{ backgroundColor: "var(--accent-peach)" }}
+      />
+      <div
+        className="absolute bottom-1/4 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-20"
+        style={{ backgroundColor: "var(--accent-lavender)" }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
-          badge="Featured Portfolio"
-          badgeVariant="purple"
-          title="Projects That Turn Ideas Into Reality"
-          subtitle="A selection of AI, machine learning, computer vision, and full-stack applications I've worked on."
-          theme="light"
+          badge="Featured Engineering Folio"
+          badgeVariant="peach"
+          title="Engineered to Solve Real Challenges"
+          subtitle="A selection of machine learning architectures, real-time computer vision pipelines, and full-stack applications with verified metrics."
         />
 
         <div className="space-y-16">
@@ -53,7 +62,11 @@ export const ProjectsSection: React.FC = () => {
             return (
               <div
                 key={project.id}
-                className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl hover:shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="rounded-3xl p-6 sm:p-10 border shadow-warm-md hover:shadow-warm-lg transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
               >
                 {/* Screenshot & Visual Preview Column */}
                 <div
@@ -61,30 +74,46 @@ export const ProjectsSection: React.FC = () => {
                     isReversed ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="relative group rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md">
+                  <div
+                    className="relative group rounded-2xl overflow-hidden border shadow-sm"
+                    style={{
+                      borderColor: "var(--border-subtle)",
+                      backgroundColor: "var(--bg-tertiary)",
+                    }}
+                  >
                     <img
                       src={project.mainImage}
                       alt={project.title}
-                      className="w-full h-72 sm:h-80 md:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-72 sm:h-80 md:h-96 object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                     />
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
 
                     {/* Floating Zoom / Lightbox Trigger */}
                     <button
                       onClick={() => handleOpenLightbox(project, 0)}
-                      className="absolute bottom-4 right-4 p-2.5 rounded-xl bg-black/60 hover:bg-[#5865F2] text-white backdrop-blur-md transition-all shadow-lg flex items-center gap-1.5 text-xs font-semibold"
-                      aria-label="Enlarge screenshot"
+                      className="absolute bottom-4 right-4 p-2.5 rounded-xl text-white backdrop-blur-md transition-all shadow-md flex items-center gap-1.5 text-xs font-mono font-semibold"
+                      style={{
+                        backgroundColor: "rgba(52, 38, 51, 0.8)",
+                        border: "1px solid rgba(220, 210, 233, 0.2)",
+                      }}
+                      aria-label="Enlarge project screenshot"
                     >
-                      <Maximize2 className="w-4 h-4" />
-                      <span>View Gallery</span>
+                      <Maximize2 className="w-3.5 h-3.5 text-[#EFC8B8]" />
+                      <span>Inspect Gallery</span>
                     </button>
 
-                    {/* Quick Metric Chip on Image */}
+                    {/* Metric Chip on Image */}
                     {project.metrics.length > 0 && (
-                      <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-xl text-white text-xs font-mono">
-                        <span className="text-[#67E8F9] font-bold">
+                      <div
+                        className="absolute top-4 left-4 backdrop-blur-md px-3.5 py-1.5 rounded-xl text-xs font-mono border shadow-sm text-white"
+                        style={{
+                          backgroundColor: "rgba(37, 28, 39, 0.85)",
+                          borderColor: "rgba(239, 200, 184, 0.3)",
+                        }}
+                      >
+                        <span className="text-[#EFC8B8] font-bold">
                           {project.metrics[0].label}:
                         </span>{" "}
                         {project.metrics[0].value}
@@ -98,7 +127,11 @@ export const ProjectsSection: React.FC = () => {
                       <button
                         key={thumb.id}
                         onClick={() => handleOpenLightbox(project, tIdx)}
-                        className="relative w-16 h-12 rounded-lg overflow-hidden border-2 border-transparent hover:border-[#5865F2] focus:border-[#5865F2] transition-all flex-shrink-0"
+                        className="relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 hover:scale-105"
+                        style={{
+                          borderColor: "var(--border-subtle)",
+                        }}
+                        title={thumb.title}
                       >
                         <img
                           src={thumb.src}
@@ -110,7 +143,12 @@ export const ProjectsSection: React.FC = () => {
                     {project.gallery.length > 4 && (
                       <button
                         onClick={() => handleOpenLightbox(project, 4)}
-                        className="w-16 h-12 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-xs font-bold flex items-center justify-center flex-shrink-0 transition-colors"
+                        className="w-16 h-12 rounded-lg text-xs font-mono font-bold flex items-center justify-center flex-shrink-0 transition-colors border"
+                        style={{
+                          backgroundColor: "var(--bg-tertiary)",
+                          borderColor: "var(--border-subtle)",
+                          color: "var(--text-primary)",
+                        }}
                       >
                         +{project.gallery.length - 4}
                       </button>
@@ -125,13 +163,22 @@ export const ProjectsSection: React.FC = () => {
                   }`}
                 >
                   <div>
-                    <span className="text-xs font-mono font-bold tracking-wider text-[#5865F2] uppercase block mb-1">
+                    <span
+                      className="text-xs font-mono font-bold tracking-wider uppercase block mb-1"
+                      style={{ color: "var(--accent-dusty-peach)" }}
+                    >
                       {project.subtitle}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+                    <h3
+                      className="text-2xl sm:text-3xl font-display-serif font-bold tracking-tight mb-3"
+                      style={{ color: "var(--text-primary)" }}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 font-normal">
+                    <p
+                      className="text-sm sm:text-base leading-relaxed mb-6 font-normal"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
                       {project.summary}
                     </p>
 
@@ -140,12 +187,22 @@ export const ProjectsSection: React.FC = () => {
                       {project.metrics.slice(0, 3).map((metric, mIdx) => (
                         <div
                           key={mIdx}
-                          className="bg-[#F7F7FC] p-3 rounded-xl border border-slate-200/80"
+                          className="p-3 rounded-2xl border"
+                          style={{
+                            backgroundColor: "var(--bg-primary)",
+                            borderColor: "var(--border-subtle)",
+                          }}
                         >
-                          <span className="text-[11px] font-mono text-slate-500 block">
+                          <span
+                            className="text-[10px] font-mono block uppercase tracking-wider mb-0.5"
+                            style={{ color: "var(--text-muted)" }}
+                          >
                             {metric.label}
                           </span>
-                          <span className="text-base font-black text-slate-900">
+                          <span
+                            className="text-base font-bold font-display-serif"
+                            style={{ color: "var(--text-primary)" }}
+                          >
                             {metric.value}
                           </span>
                         </div>
@@ -157,7 +214,12 @@ export const ProjectsSection: React.FC = () => {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200"
+                          className="px-3 py-1 rounded-xl text-xs font-mono font-medium border"
+                          style={{
+                            backgroundColor: "var(--bg-tertiary)",
+                            borderColor: "var(--border-subtle)",
+                            color: "var(--text-primary)",
+                          }}
                         >
                           {tech}
                         </span>
@@ -166,23 +228,35 @@ export const ProjectsSection: React.FC = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-100">
+                  <div
+                    className="flex flex-wrap items-center gap-3 pt-4 border-t"
+                    style={{ borderColor: "var(--border-subtle)" }}
+                  >
                     <Link
                       to={`/projects/${project.slug}`}
-                      className="px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-[#5865F2] to-[#7548E8] hover:shadow-lg hover:shadow-[#5865F2]/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
+                      className="px-5 py-2.5 rounded-xl font-mono font-bold text-xs text-[#FAF7F2] shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
+                      style={{
+                        backgroundColor: "var(--accent-plum)",
+                        border: "1px solid var(--accent-dusty-peach)",
+                      }}
                     >
-                      <span>View Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Read Case Study</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#EFC8B8]" />
                     </Link>
 
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-xl font-semibold text-xs text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors flex items-center gap-1.5"
+                      className="px-4 py-2.5 rounded-xl font-mono text-xs font-semibold transition-all flex items-center gap-1.5 border"
+                      style={{
+                        backgroundColor: "var(--bg-primary)",
+                        borderColor: "var(--border-subtle)",
+                        color: "var(--text-primary)",
+                      }}
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
-                      <span>GitHub</span>
+                      <span>Source Code</span>
                     </a>
 
                     {project.liveDemoUrl && (
@@ -190,11 +264,15 @@ export const ProjectsSection: React.FC = () => {
                         href={project.liveDemoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2.5 rounded-xl font-semibold text-xs text-[#5865F2] bg-[#5865F2]/10 hover:bg-[#5865F2]/20 border border-[#5865F2]/20 transition-colors flex items-center gap-1.5"
-                        title="Live demo link configured - editable in data"
+                        className="px-4 py-2.5 rounded-xl font-mono text-xs font-semibold transition-all flex items-center gap-1.5 border"
+                        style={{
+                          backgroundColor: "rgba(16, 185, 129, 0.1)",
+                          borderColor: "rgba(16, 185, 129, 0.3)",
+                          color: "#059669",
+                        }}
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
-                        <span>Live Demo</span>
+                        <span>Live App</span>
                       </a>
                     )}
                   </div>
@@ -205,7 +283,7 @@ export const ProjectsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Reusable Image Lightbox */}
+      {/* Lightbox Modal */}
       <Lightbox
         isOpen={lightboxOpen}
         images={activeGallery}

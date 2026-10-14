@@ -35,22 +35,47 @@ export const ProjectDetailPage: React.FC = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#11152E] text-white flex flex-col justify-between">
+      <div
+        className="min-h-screen flex flex-col justify-between theme-transition"
+        style={{
+          backgroundColor: "var(--bg-primary)",
+          color: "var(--text-primary)",
+        }}
+      >
         <Navbar />
         <div className="max-w-xl mx-auto px-4 py-32 text-center">
-          <div className="p-4 rounded-2xl bg-pink-500/10 border border-pink-500/20 text-[#F5B8D5] inline-block mb-4">
+          <div
+            className="p-4 rounded-2xl border inline-block mb-4"
+            style={{
+              backgroundColor: "var(--bg-tertiary)",
+              borderColor: "var(--border-subtle)",
+              color: "var(--accent-dusty-peach)",
+            }}
+          >
             <AlertCircle className="w-10 h-10" />
           </div>
-          <h2 className="text-3xl font-extrabold mb-2">Project Not Found</h2>
-          <p className="text-slate-400 mb-6 text-sm">
-            The project you're looking for doesn't exist or may have been moved.
+          <h2
+            className="text-3xl font-display-serif font-bold mb-2 tracking-tight"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Project Not Found
+          </h2>
+          <p
+            className="mb-6 text-sm font-normal"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            The project you're looking for doesn't exist or may have been updated.
           </p>
           <Link
             to="/#projects"
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#5865F2] to-[#7548E8] text-white font-bold text-sm inline-flex items-center gap-2"
+            className="px-6 py-3 rounded-2xl font-mono font-bold text-xs text-[#FAF7F2] inline-flex items-center gap-2 shadow-sm"
+            style={{
+              backgroundColor: "var(--accent-plum)",
+              border: "1px solid var(--accent-dusty-peach)",
+            }}
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Projects</span>
+            <span>Return to Portfolio</span>
           </Link>
         </div>
         <Footer />
@@ -74,7 +99,13 @@ export const ProjectDetailPage: React.FC = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-[#11152E] text-white selection:bg-[#5865F2] selection:text-white flex flex-col justify-between">
+    <div
+      className="min-h-screen flex flex-col justify-between theme-transition"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+      }}
+    >
       <Navbar />
 
       <main className="pt-28 pb-20">
@@ -84,43 +115,75 @@ export const ProjectDetailPage: React.FC = () => {
           <div className="mb-8 flex items-center justify-between">
             <Link
               to="/#projects"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#67E8F9] hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-white/10"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded-2xl border transition-all hover:scale-[1.01]"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border-subtle)",
+                color: "var(--text-primary)",
+              }}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 text-[#DCA996]" />
               <span>Back to Featured Projects</span>
             </Link>
 
-            <span className="text-xs font-mono text-slate-400">
-              Verified Technical Case Study
+            <span
+              className="text-xs font-mono font-medium"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Verified Engineering Case Study
             </span>
           </div>
 
           {/* PROJECT HERO SECTION */}
-          <div className="relative bg-gradient-to-b from-[#171B38] to-[#12152F] rounded-3xl p-8 sm:p-12 border border-[#7548E8]/30 shadow-2xl overflow-hidden mb-12">
-            {/* Top Glowing Bar */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#5865F2] via-[#7548E8] to-[#67E8F9]" />
+          <div
+            className="rounded-3xl p-8 sm:p-12 border shadow-warm-lg overflow-hidden mb-12 relative paper-surface"
+            style={{
+              backgroundColor: "var(--bg-card)",
+              borderColor: "var(--border-subtle)",
+            }}
+          >
+            {/* Top Accent Line */}
+            <div
+              className="absolute top-0 left-0 right-0 h-1.5"
+              style={{
+                background: "linear-gradient(to right, var(--accent-dusty-peach), var(--accent-lavender))",
+              }}
+            />
 
             <div className="max-w-4xl">
-              <span className="text-xs font-mono font-bold tracking-widest text-[#67E8F9] uppercase block mb-2">
+              <span
+                className="text-xs font-mono font-bold tracking-widest uppercase block mb-2"
+                style={{ color: "var(--accent-dusty-peach)" }}
+              >
                 {project.subtitle}
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-display-serif font-bold tracking-tight mb-4"
+                style={{ color: "var(--text-primary)" }}
+              >
                 {project.title}
               </h1>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+              <p
+                className="text-base sm:text-lg leading-relaxed mb-8 font-normal"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {project.summary}
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3.5">
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#5865F2] to-[#7548E8] shadow-[0_0_20px_rgba(88,101,242,0.4)] hover:shadow-[0_0_30px_rgba(88,101,242,0.6)] transition-all flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                  className="px-6 py-3.5 rounded-2xl font-mono font-bold text-xs text-[#FAF7F2] shadow-warm-md hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
+                  style={{
+                    backgroundColor: "var(--accent-plum)",
+                    border: "1px solid var(--accent-dusty-peach)",
+                  }}
                 >
-                  <GithubIcon className="w-4 h-4" />
-                  <span>View Source on GitHub</span>
+                  <GithubIcon className="w-4 h-4 text-[#EFC8B8]" />
+                  <span>View Source Repository</span>
                 </a>
 
                 {project.liveDemoUrl && (
@@ -128,38 +191,64 @@ export const ProjectDetailPage: React.FC = () => {
                     href={project.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3.5 rounded-xl font-bold text-sm text-slate-200 bg-white/10 hover:bg-white/20 border border-white/20 hover:text-white transition-all flex items-center gap-2"
+                    className="px-6 py-3.5 rounded-2xl font-mono font-semibold text-xs border transition-all flex items-center gap-2 hover:scale-[1.02]"
+                    style={{
+                      backgroundColor: "rgba(16, 185, 129, 0.1)",
+                      borderColor: "rgba(16, 185, 129, 0.3)",
+                      color: "#059669",
+                    }}
                   >
-                    <ExternalLink className="w-4 h-4 text-[#67E8F9]" />
-                    <span>Launch Live Demo</span>
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Launch Live Application</span>
                   </a>
                 )}
 
                 <Link
                   to="/#contact"
-                  className="px-6 py-3.5 rounded-xl font-semibold text-sm text-[#C4B5FD] bg-[#11152E] border border-[#7548E8]/40 hover:border-[#67E8F9] transition-all flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-2xl font-mono font-semibold text-xs border transition-all flex items-center gap-2 hover:scale-[1.02]"
+                  style={{
+                    backgroundColor: "var(--bg-primary)",
+                    borderColor: "var(--border-subtle)",
+                    color: "var(--text-primary)",
+                  }}
                 >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Discuss Similar Project</span>
+                  <Sparkles className="w-4 h-4 text-[#B9A5CF]" />
+                  <span>Inquire About Project</span>
                 </Link>
               </div>
             </div>
 
             {/* Empirical Metrics Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
+            <div
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t"
+              style={{ borderColor: "var(--border-subtle)" }}
+            >
               {project.metrics.map((metric, mIdx) => (
                 <div
                   key={mIdx}
-                  className="bg-[#11152E]/90 p-4 rounded-2xl border border-white/10"
+                  className="p-4 rounded-2xl border shadow-sm"
+                  style={{
+                    backgroundColor: "var(--bg-primary)",
+                    borderColor: "var(--border-subtle)",
+                  }}
                 >
-                  <span className="text-[11px] font-mono text-[#C4B5FD] uppercase tracking-wider block mb-1">
+                  <span
+                    className="text-[10px] font-mono uppercase tracking-wider block mb-1"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     {metric.label}
                   </span>
-                  <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-[#67E8F9]">
+                  <div
+                    className="text-2xl sm:text-3xl font-display-serif font-bold"
+                    style={{ color: "var(--accent-plum)" }}
+                  >
                     {metric.value}
                   </div>
                   {metric.description && (
-                    <span className="text-[11px] text-slate-400 mt-1 block">
+                    <span
+                      className="text-[11px] font-mono mt-1 block"
+                      style={{ color: "var(--text-muted)" }}
+                    >
                       {metric.description}
                     </span>
                   )}
@@ -175,43 +264,88 @@ export const ProjectDetailPage: React.FC = () => {
             <div className="lg:col-span-8 space-y-10">
               
               {/* Problem Statement Card */}
-              <div className="bg-[#171B38] rounded-3xl p-8 border border-white/10 shadow-xl">
+              <div
+                className="rounded-3xl p-8 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-pink-500/20 text-[#F5B8D5]">
-                    <AlertCircle className="w-5 h-5" />
+                  <div
+                    className="p-2.5 rounded-xl border flex items-center justify-center"
+                    style={{
+                      backgroundColor: "var(--bg-tertiary)",
+                      borderColor: "var(--border-subtle)",
+                    }}
+                  >
+                    <AlertCircle className="w-5 h-5 text-[#DCA996]" />
                   </div>
-                  <h3 className="text-xl font-bold text-white tracking-tight">
-                    The Problem & Challenge
+                  <h3
+                    className="text-xl font-display-serif font-bold tracking-tight"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    The Engineering Challenge
                   </h3>
                 </div>
-                <p className="text-slate-300 text-base leading-relaxed">
+                <p
+                  className="text-base leading-relaxed font-normal"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {project.problem}
                 </p>
               </div>
 
               {/* Solution & Implementation Card */}
-              <div className="bg-[#171B38] rounded-3xl p-8 border border-white/10 shadow-xl">
+              <div
+                className="rounded-3xl p-8 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-[#5865F2]/20 text-[#67E8F9]">
-                    <Compass className="w-5 h-5" />
+                  <div
+                    className="p-2.5 rounded-xl border flex items-center justify-center"
+                    style={{
+                      backgroundColor: "var(--bg-tertiary)",
+                      borderColor: "var(--border-subtle)",
+                    }}
+                  >
+                    <Compass className="w-5 h-5 text-[#B9A5CF]" />
                   </div>
-                  <h3 className="text-xl font-bold text-white tracking-tight">
+                  <h3
+                    className="text-xl font-display-serif font-bold tracking-tight"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     Solution & Architectural Approach
                   </h3>
                 </div>
-                <p className="text-slate-300 text-base leading-relaxed mb-6">
+                <p
+                  className="text-base leading-relaxed mb-6 font-normal"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {project.solution}
                 </p>
 
                 {/* Key Features List */}
-                <h4 className="text-xs font-mono uppercase tracking-wider text-[#C4B5FD] font-semibold mb-3">
+                <h4
+                  className="text-xs font-mono uppercase tracking-widest font-semibold mb-3.5"
+                  style={{ color: "var(--accent-dusty-peach)" }}
+                >
                   Core Implementation Features
                 </h4>
-                <div className="space-y-2.5">
+                <div className="space-y-3">
                   {project.keyFeatures.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-[#67E8F9] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300 leading-relaxed">
+                      <CheckCircle2
+                        className="w-4 h-4 flex-shrink-0 mt-1"
+                        style={{ color: "var(--accent-dusty-peach)" }}
+                      />
+                      <span
+                        className="text-sm leading-relaxed"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
                         {feature}
                       </span>
                     </div>
@@ -220,23 +354,48 @@ export const ProjectDetailPage: React.FC = () => {
               </div>
 
               {/* My Direct Contributions Card */}
-              <div className="bg-[#171B38] rounded-3xl p-8 border border-white/10 shadow-xl">
+              <div
+                className="rounded-3xl p-8 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-purple-500/20 text-[#C4B5FD]">
-                    <Code className="w-5 h-5" />
+                  <div
+                    className="p-2.5 rounded-xl border flex items-center justify-center"
+                    style={{
+                      backgroundColor: "var(--bg-tertiary)",
+                      borderColor: "var(--border-subtle)",
+                    }}
+                  >
+                    <Code className="w-5 h-5 text-[#DCA996]" />
                   </div>
-                  <h3 className="text-xl font-bold text-white tracking-tight">
-                    My Engineering Contributions
+                  <h3
+                    className="text-xl font-display-serif font-bold tracking-tight"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    My Direct Engineering Contributions
                   </h3>
                 </div>
 
                 <div className="space-y-3.5">
                   {project.myContributions.map((contrib, cIdx) => (
                     <div key={cIdx} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-xs font-mono text-[#67E8F9] flex-shrink-0 mt-0.5">
+                      <div
+                        className="w-6 h-6 rounded-lg border flex items-center justify-center text-xs font-mono font-bold flex-shrink-0 mt-0.5"
+                        style={{
+                          backgroundColor: "var(--bg-tertiary)",
+                          borderColor: "var(--border-subtle)",
+                          color: "var(--accent-dusty-peach)",
+                        }}
+                      >
                         {cIdx + 1}
                       </div>
-                      <p className="text-sm text-slate-300 leading-relaxed">
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
                         {contrib}
                       </p>
                     </div>
@@ -245,17 +404,33 @@ export const ProjectDetailPage: React.FC = () => {
               </div>
 
               {/* INTERACTIVE SCREENSHOT GALLERY */}
-              <div className="bg-[#171B38] rounded-3xl p-8 border border-white/10 shadow-xl">
+              <div
+                className="rounded-3xl p-8 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="text-xl font-bold text-white tracking-tight">
-                      Screenshot & Visual Gallery
+                    <h3
+                      className="text-xl font-display-serif font-bold tracking-tight"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Technical Visual Gallery
                     </h3>
-                    <p className="text-xs text-slate-400 mt-0.5">
-                      Click any screenshot to inspect in high-resolution lightbox
+                    <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+                      Click any screenshot to inspect in full-resolution lightbox
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#67E8F9] bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                  <span
+                    className="text-xs font-mono px-3 py-1 rounded-full border"
+                    style={{
+                      backgroundColor: "var(--bg-primary)",
+                      borderColor: "var(--border-subtle)",
+                      color: "var(--accent-dusty-peach)",
+                    }}
+                  >
                     {project.gallery.length} Images
                   </span>
                 </div>
@@ -265,7 +440,11 @@ export const ProjectDetailPage: React.FC = () => {
                     <div
                       key={item.id}
                       onClick={() => handleOpenLightbox(gIdx)}
-                      className="group relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900 cursor-pointer shadow-md hover:border-[#5865F2] transition-all"
+                      className="group relative rounded-2xl overflow-hidden border cursor-pointer shadow-sm hover:scale-[1.02] transition-all"
+                      style={{
+                        borderColor: "var(--border-subtle)",
+                        backgroundColor: "var(--bg-primary)",
+                      }}
                     >
                       <img
                         src={item.src}
@@ -274,10 +453,10 @@ export const ProjectDetailPage: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
                         <span className="text-xs font-bold text-white flex items-center gap-1.5">
-                          <Maximize2 className="w-3.5 h-3.5 text-[#67E8F9]" />
+                          <Maximize2 className="w-3.5 h-3.5 text-[#EFC8B8]" />
                           {item.title}
                         </span>
-                        <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">
+                        <p className="text-[11px] text-stone-200 line-clamp-1 mt-0.5">
                           {item.caption}
                         </p>
                       </div>
@@ -292,15 +471,29 @@ export const ProjectDetailPage: React.FC = () => {
             <div className="lg:col-span-4 space-y-8">
               
               {/* Technologies Card */}
-              <div className="bg-[#171B38] rounded-3xl p-7 border border-white/10 shadow-xl">
-                <h4 className="text-sm font-mono uppercase tracking-wider text-[#C4B5FD] font-semibold mb-4">
+              <div
+                className="rounded-3xl p-7 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
+                <h4
+                  className="text-xs font-mono uppercase tracking-widest font-semibold mb-4"
+                  style={{ color: "var(--accent-dusty-peach)" }}
+                >
                   Technologies & Frameworks
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200"
+                      className="px-3 py-1.5 rounded-xl border text-xs font-mono font-medium"
+                      style={{
+                        backgroundColor: "var(--bg-primary)",
+                        borderColor: "var(--border-subtle)",
+                        color: "var(--text-primary)",
+                      }}
                     >
                       {tech}
                     </span>
@@ -309,22 +502,36 @@ export const ProjectDetailPage: React.FC = () => {
               </div>
 
               {/* Project Quick Links */}
-              <div className="bg-[#171B38] rounded-3xl p-7 border border-white/10 shadow-xl space-y-3">
-                <h4 className="text-sm font-mono uppercase tracking-wider text-[#C4B5FD] font-semibold mb-2">
-                  Project Links
+              <div
+                className="rounded-3xl p-7 border shadow-warm-sm space-y-3 paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
+                <h4
+                  className="text-xs font-mono uppercase tracking-widest font-semibold mb-2"
+                  style={{ color: "var(--accent-dusty-peach)" }}
+                >
+                  Project Resources
                 </h4>
                 
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-[#5865F2]/20 border border-white/10 hover:border-[#5865F2]/50 text-xs font-semibold text-white transition-all"
+                  className="flex items-center justify-between p-3.5 rounded-2xl border text-xs font-mono font-semibold transition-all hover:scale-[1.01]"
+                  style={{
+                    backgroundColor: "var(--bg-primary)",
+                    borderColor: "var(--border-subtle)",
+                    color: "var(--text-primary)",
+                  }}
                 >
                   <span className="flex items-center gap-2">
-                    <GithubIcon className="w-4 h-4 text-[#67E8F9]" />
+                    <GithubIcon className="w-4 h-4 text-[#DCA996]" />
                     Source Repository
                   </span>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                  <ExternalLink className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
                 </a>
 
                 {project.liveDemoUrl && (
@@ -332,34 +539,58 @@ export const ProjectDetailPage: React.FC = () => {
                     href={project.liveDemoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 hover:bg-[#5865F2]/20 border border-white/10 hover:border-[#5865F2]/50 text-xs font-semibold text-white transition-all"
+                    className="flex items-center justify-between p-3.5 rounded-2xl border text-xs font-mono font-semibold transition-all hover:scale-[1.01]"
+                    style={{
+                      backgroundColor: "rgba(16, 185, 129, 0.1)",
+                      borderColor: "rgba(16, 185, 129, 0.3)",
+                      color: "#059669",
+                    }}
                   >
                     <span className="flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-emerald-400" />
+                      <ExternalLink className="w-4 h-4" />
                       Live Application Demo
                     </span>
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>
 
-              {/* Related Projects */}
-              <div className="bg-[#171B38] rounded-3xl p-7 border border-white/10 shadow-xl">
-                <h4 className="text-sm font-mono uppercase tracking-wider text-[#C4B5FD] font-semibold mb-4">
-                  Other Featured Projects
+              {/* Other Projects */}
+              <div
+                className="rounded-3xl p-7 border shadow-warm-sm paper-surface"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
+                <h4
+                  className="text-xs font-mono uppercase tracking-widest font-semibold mb-4"
+                  style={{ color: "var(--accent-dusty-peach)" }}
+                >
+                  Other Featured Works
                 </h4>
 
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   {relatedProjects.map((rel) => (
                     <Link
                       key={rel.id}
                       to={`/projects/${rel.slug}`}
-                      className="block p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
+                      className="block p-4 rounded-2xl border transition-all hover:-translate-y-0.5 group"
+                      style={{
+                        backgroundColor: "var(--bg-primary)",
+                        borderColor: "var(--border-subtle)",
+                      }}
                     >
-                      <span className="text-[11px] font-mono text-[#67E8F9] block mb-1">
+                      <span
+                        className="text-[10px] font-mono uppercase tracking-wider block mb-1"
+                        style={{ color: "var(--accent-dusty-peach)" }}
+                      >
                         {rel.subtitle}
                       </span>
-                      <h5 className="font-bold text-sm text-white group-hover:text-[#C4B5FD] transition-colors">
+                      <h5
+                        className="font-display-serif font-bold text-base transition-colors group-hover:underline"
+                        style={{ color: "var(--text-primary)" }}
+                      >
                         {rel.title}
                       </h5>
                     </Link>
@@ -372,12 +603,19 @@ export const ProjectDetailPage: React.FC = () => {
           </div>
 
           {/* Bottom Back Button */}
-          <div className="pt-8 border-t border-white/10 flex justify-center">
+          <div
+            className="pt-8 border-t flex justify-center"
+            style={{ borderColor: "var(--border-subtle)" }}
+          >
             <Link
               to="/#projects"
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#5865F2] to-[#7548E8] text-white font-bold text-sm flex items-center gap-2 shadow-lg"
+              className="px-8 py-3.5 rounded-2xl font-mono font-bold text-xs text-[#FAF7F2] flex items-center gap-2 shadow-warm-md hover:scale-[1.02] transition-all"
+              style={{
+                backgroundColor: "var(--accent-plum)",
+                border: "1px solid var(--accent-dusty-peach)",
+              }}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 text-[#EFC8B8]" />
               <span>Back to All Projects</span>
             </Link>
           </div>
@@ -387,7 +625,7 @@ export const ProjectDetailPage: React.FC = () => {
 
       <Footer />
 
-      {/* Lightbox for gallery inspection */}
+      {/* Lightbox Modal */}
       <Lightbox
         isOpen={lightboxOpen}
         images={galleryImages}
@@ -407,3 +645,5 @@ export const ProjectDetailPage: React.FC = () => {
     </div>
   );
 };
+
+export default ProjectDetailPage;

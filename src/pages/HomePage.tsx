@@ -44,8 +44,14 @@ export const HomePage: React.FC = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#11152E] text-white selection:bg-[#5865F2] selection:text-white">
-      {/* Sticky Navigation */}
+    <div
+      className="min-h-screen theme-transition"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+      }}
+    >
+      {/* Floating Study Navigation */}
       <Navbar activeSection={activeSection} />
 
       {/* Main Sections */}
@@ -67,3 +73,5 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+
+export default HomePage;

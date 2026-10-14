@@ -81,7 +81,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               e.stopPropagation();
               onPrev();
             }}
-            className="absolute left-4 z-50 p-3 text-slate-200 hover:text-white bg-black/50 hover:bg-[#5865F2] rounded-full transition-all border border-white/10 shadow-lg"
+            className="absolute left-4 z-50 p-3 text-slate-200 hover:text-white bg-black/50 hover:bg-[#DCA996] rounded-full transition-all border border-white/10 shadow-lg"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -95,7 +95,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               e.stopPropagation();
               onNext();
             }}
-            className="absolute right-4 z-50 p-3 text-slate-200 hover:text-white bg-black/50 hover:bg-[#5865F2] rounded-full transition-all border border-white/10 shadow-lg"
+            className="absolute right-4 z-50 p-3 text-slate-200 hover:text-white bg-black/50 hover:bg-[#DCA996] rounded-full transition-all border border-white/10 shadow-lg"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
@@ -123,7 +123,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
             <div className="mt-4 text-center max-w-2xl px-4">
               {currentImage.title && (
                 <h4 className="text-lg font-bold text-white mb-1 flex items-center justify-center gap-2">
-                  <ZoomIn className="w-4 h-4 text-[#67E8F9]" />
+                  <ZoomIn className="w-4 h-4 text-[#EFC8B8]" />
                   {currentImage.title}
                 </h4>
               )}

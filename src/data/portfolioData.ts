@@ -193,11 +193,11 @@ export const projectsData: ProjectData[] = [
     title: "AI Smart Traffic & Piezoelectric Energy System",
     subtitle: "Intelligent Traffic Detection and Energy Harvesting",
     themeColor: {
-      primary: "#5865F2", // Electric Blue
-      border: "rgba(88, 101, 242, 0.3)",
-      badgeBg: "rgba(88, 101, 242, 0.15)",
-      badgeText: "#67E8F9",
-      accentGlow: "0 0 35px -5px rgba(88, 101, 242, 0.35)",
+      primary: "#DCA996", // Dusty Peach
+      border: "rgba(220, 169, 150, 0.3)",
+      badgeBg: "rgba(220, 169, 150, 0.15)",
+      badgeText: "#EFC8B8",
+      accentGlow: "0 0 35px -5px rgba(220, 169, 150, 0.35)",
     },
     technologies: [
       "Python",
@@ -286,11 +286,11 @@ export const projectsData: ProjectData[] = [
     title: "AI-Powered Moderation Engine (AI Shield)",
     subtitle: "Real-Time Text and Voice Content Moderation",
     themeColor: {
-      primary: "#7548E8", // Deep Purple
-      border: "rgba(117, 72, 232, 0.3)",
-      badgeBg: "rgba(117, 72, 232, 0.15)",
-      badgeText: "#C4B5FD",
-      accentGlow: "0 0 35px -5px rgba(117, 72, 232, 0.35)",
+      primary: "#B9A5CF", // Deep Lavender
+      border: "rgba(185, 165, 207, 0.3)",
+      badgeBg: "rgba(185, 165, 207, 0.15)",
+      badgeText: "#DCD2E9",
+      accentGlow: "0 0 35px -5px rgba(185, 165, 207, 0.35)",
     },
     technologies: [
       "Python",
@@ -355,10 +355,10 @@ export const skillCategories: SkillCategory[] = [
     category: "Programming Languages",
     description: "Core languages used for systems, scripting, and application engineering.",
     colorScheme: {
-      bg: "from-blue-500/10 to-indigo-500/10",
-      border: "border-blue-500/20",
-      text: "text-blue-400",
-      iconBg: "bg-blue-500/10",
+      bg: "from-stone-500/10 to-amber-500/10",
+      border: "border-stone-500/20",
+      text: "text-stone-700",
+      iconBg: "bg-stone-500/10",
     },
     skills: [
       { name: "Python" },
@@ -371,10 +371,10 @@ export const skillCategories: SkillCategory[] = [
     category: "Frontend Development",
     description: "Building responsive, modern, and accessible user interfaces.",
     colorScheme: {
-      bg: "from-cyan-500/10 to-blue-500/10",
-      border: "border-cyan-500/20",
-      text: "text-cyan-400",
-      iconBg: "bg-cyan-500/10",
+      bg: "from-amber-500/10 to-stone-500/10",
+      border: "border-stone-300/20",
+      text: "text-stone-700",
+      iconBg: "bg-stone-500/10",
     },
     skills: [
       { name: "React" },
@@ -387,10 +387,10 @@ export const skillCategories: SkillCategory[] = [
     category: "Backend Development",
     description: "Scalable APIs, authentication mechanisms, and real-time sockets.",
     colorScheme: {
-      bg: "from-purple-500/10 to-indigo-500/10",
-      border: "border-purple-500/20",
-      text: "text-purple-400",
-      iconBg: "bg-purple-500/10",
+      bg: "from-stone-600/10 to-stone-700/10",
+      border: "border-stone-400/20",
+      text: "text-stone-800",
+      iconBg: "bg-stone-600/10",
     },
     skills: [
       { name: "FastAPI" },
@@ -505,7 +505,7 @@ export const servicesData: ServiceItem[] = [
     id: "web-development",
     title: "Website Development",
     iconName: "Globe",
-    accentColor: "#5865F2",
+    accentColor: "#DCA996",
     description:
       "I create modern, responsive, and user-friendly websites for individuals, startups, and small businesses.",
     offerings: [
@@ -520,7 +520,7 @@ export const servicesData: ServiceItem[] = [
     id: "python-automation",
     title: "Python Automation",
     iconName: "Terminal",
-    accentColor: "#7548E8",
+    accentColor: "#342633",
     description:
       "I help simplify repetitive work with custom Python scripts and automation tools.",
     offerings: [
@@ -535,7 +535,7 @@ export const servicesData: ServiceItem[] = [
     id: "ai-ml-solutions",
     title: "AI & Machine Learning Solutions",
     iconName: "Cpu",
-    accentColor: "#67E8F9",
+    accentColor: "#B9A5CF",
     description:
       "I develop practical AI-powered prototypes and applications tailored to project requirements.",
     offerings: [

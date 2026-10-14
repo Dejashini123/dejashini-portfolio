@@ -20,28 +20,28 @@ export const ServicesSection: React.FC = () => {
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
       case "Globe":
-        return <Globe className="w-7 h-7 text-[#5865F2]" />;
+        return <Globe className="w-6 h-6 text-[#DCA996]" />;
       case "Terminal":
-        return <Terminal className="w-7 h-7 text-[#7548E8]" />;
+        return <Terminal className="w-6 h-6 text-[#B9A5CF]" />;
       case "Cpu":
-        return <Cpu className="w-7 h-7 text-[#67E8F9]" />;
+        return <Cpu className="w-6 h-6 text-[#EFC8B8]" />;
       default:
-        return <Globe className="w-7 h-7 text-[#5865F2]" />;
+        return <Globe className="w-6 h-6 text-[#DCA996]" />;
     }
   };
 
   const getPillarIcon = (iconName: string) => {
     switch (iconName) {
       case "Target":
-        return <Target className="w-6 h-6 text-[#5865F2]" />;
+        return <Target className="w-5 h-5 text-[#DCA996]" />;
       case "Layers":
-        return <Layers className="w-6 h-6 text-[#7548E8]" />;
+        return <Layers className="w-5 h-5 text-[#B9A5CF]" />;
       case "MessageSquare":
-        return <MessageSquare className="w-6 h-6 text-[#67E8F9]" />;
+        return <MessageSquare className="w-5 h-5 text-[#EFC8B8]" />;
       case "Sparkles":
-        return <Sparkles className="w-6 h-6 text-[#F5B8D5]" />;
+        return <Sparkles className="w-5 h-5 text-[#DCA996]" />;
       default:
-        return <Sparkles className="w-6 h-6 text-[#5865F2]" />;
+        return <Sparkles className="w-5 h-5 text-[#DCA996]" />;
     }
   };
 
@@ -53,39 +53,61 @@ export const ServicesSection: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-24 bg-[#EFEFF8] text-slate-900 relative overflow-hidden"
+      className="py-24 relative overflow-hidden theme-transition"
+      style={{
+        backgroundColor: "var(--bg-secondary)",
+        color: "var(--text-primary)",
+      }}
     >
-      {/* Background radial highlights */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-[#C4B5FD]/30 to-[#F5B8D5]/20 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background accents */}
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-20"
+        style={{ backgroundColor: "var(--accent-peach)" }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* SERVICES SECTION */}
+        {/* SERVICES OFFERED */}
         <SectionHeader
-          badge="Freelance Offerings"
-          badgeVariant="purple"
-          title="Let's Build Something That Works for You"
-          subtitle="Practical technology solutions for businesses, startups, and creative ideas."
-          theme="light"
+          badge="Engineering & Services"
+          badgeVariant="lavender"
+          title="Practical Solutions for Modern Demands"
+          subtitle="Whether you need a bespoke web platform, custom Python automation, or an AI prototype tailored to your workflow."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between"
+              className="rounded-3xl p-8 border shadow-warm-md hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between paper-surface"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border-subtle)",
+              }}
             >
               <div>
                 {/* Service Header */}
-                <div className="p-3.5 rounded-2xl bg-[#F7F7FC] border border-slate-100 inline-block mb-5 shadow-sm">
+                <div
+                  className="p-3.5 rounded-2xl border inline-block mb-5 shadow-sm"
+                  style={{
+                    backgroundColor: "var(--bg-tertiary)",
+                    borderColor: "var(--border-subtle)",
+                  }}
+                >
                   {getServiceIcon(service.iconName)}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                <h3
+                  className="text-xl font-display-serif font-bold mb-3 tracking-tight"
+                  style={{ color: "var(--text-primary)" }}
+                >
                   {service.title}
                 </h3>
 
-                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                <p
+                  className="text-sm leading-relaxed mb-6 font-normal"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   {service.description}
                 </p>
 
@@ -93,8 +115,14 @@ export const ServicesSection: React.FC = () => {
                 <div className="space-y-2.5 mb-8">
                   {service.offerings.map((offering, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
-                      <CheckCircle className="w-4 h-4 text-[#5865F2] flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-slate-700 font-medium leading-relaxed">
+                      <CheckCircle
+                        className="w-4 h-4 flex-shrink-0 mt-0.5"
+                        style={{ color: "var(--accent-dusty-peach)" }}
+                      />
+                      <span
+                        className="text-xs font-medium leading-relaxed"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
                         {offering}
                       </span>
                     </div>
@@ -102,10 +130,15 @@ export const ServicesSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Trigger */}
+              {/* Action Button */}
               <button
                 onClick={scrollToContact}
-                className="w-full py-3 rounded-xl font-bold text-xs text-slate-800 bg-[#F7F7FC] hover:bg-[#5865F2] hover:text-white border border-slate-200/80 transition-all flex items-center justify-center gap-2 group"
+                className="w-full py-3 rounded-xl font-mono font-bold text-xs border transition-all flex items-center justify-center gap-2 group hover:scale-[1.01]"
+                style={{
+                  backgroundColor: "var(--bg-primary)",
+                  borderColor: "var(--border-subtle)",
+                  color: "var(--text-primary)",
+                }}
               >
                 <span>Discuss This Service</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -115,46 +148,77 @@ export const ServicesSection: React.FC = () => {
         </div>
 
         {/* Central Consultation Banner */}
-        <div className="max-w-4xl mx-auto mb-28 text-center bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div
+          className="max-w-4xl mx-auto mb-24 rounded-3xl p-8 sm:p-10 border shadow-warm-lg flex flex-col sm:flex-row items-center justify-between gap-6 paper-surface"
+          style={{
+            backgroundColor: "var(--bg-card)",
+            borderColor: "var(--border-subtle)",
+          }}
+        >
           <div className="text-left">
-            <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1">
-              Have a custom project or engineering idea in mind?
+            <h4
+              className="text-xl sm:text-2xl font-display-serif font-bold tracking-tight mb-1"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Have a custom project or AI engineering idea in mind?
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600">
+            <p
+              className="text-xs sm:text-sm font-normal"
+              style={{ color: "var(--text-secondary)" }}
+            >
               Let's talk through your goals, scope, and technical roadmap with zero obligation.
             </p>
           </div>
           <button
             onClick={scrollToContact}
-            className="px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#5865F2] via-[#7548E8] to-[#67E8F9] hover:shadow-xl hover:shadow-[#5865F2]/40 transition-all flex-shrink-0 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+            className="px-6 py-3.5 rounded-xl font-mono font-bold text-xs text-[#FAF7F2] shadow-sm flex-shrink-0 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            style={{
+              backgroundColor: "var(--accent-plum)",
+              border: "1px solid var(--accent-dusty-peach)",
+            }}
           >
-            <span>Discuss Your Project</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Start Conversation</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#EFC8B8]" />
           </button>
         </div>
 
         {/* WHY WORK WITH ME SECTION */}
         <SectionHeader
-          badge="Guiding Principles"
-          badgeVariant="brand"
+          badge="Guiding Values"
+          badgeVariant="peach"
           title="Why Collaborate With Me?"
-          subtitle="Honest problem-solving, dual AI and full-stack perspectives, and direct, clear communication."
-          theme="light"
+          subtitle="Honest problem-solving, dual AI and full-stack perspectives, and direct, proactive communication."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {whyWorkWithMeData.map((pillar, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="rounded-3xl p-7 border shadow-warm-sm hover:shadow-warm-md transition-all duration-300 hover:-translate-y-1 paper-surface"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border-subtle)",
+              }}
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#F7F7FC] border border-slate-100 flex items-center justify-center mb-5 shadow-sm">
+              <div
+                className="w-11 h-11 rounded-2xl border flex items-center justify-center mb-5 shadow-sm"
+                style={{
+                  backgroundColor: "var(--bg-tertiary)",
+                  borderColor: "var(--border-subtle)",
+                }}
+              >
                 {getPillarIcon(pillar.iconName)}
               </div>
-              <h4 className="text-base font-bold text-slate-900 mb-2 tracking-tight">
+              <h4
+                className="text-base font-display-serif font-bold mb-2 tracking-tight"
+                style={{ color: "var(--text-primary)" }}
+              >
                 {pillar.title}
               </h4>
-              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              <p
+                className="text-xs leading-relaxed font-normal"
+                style={{ color: "var(--text-secondary)" }}
+              >
                 {pillar.description}
               </p>
             </div>
